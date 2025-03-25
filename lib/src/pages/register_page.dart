@@ -37,6 +37,11 @@ class RegisterPage extends StatelessWidget {
                 obscure: false,
               ),
               InputLoginWidget(
+                icon: Icons.badge,
+                hint: 'CPF',
+                obscure: false,
+              ),
+              InputLoginWidget(
                 icon: Icons.lock_outline,
                 hint: 'Senha',
                 obscure: true,
@@ -50,7 +55,7 @@ class RegisterPage extends StatelessWidget {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color(0xFFAFAE24),
-                  minimumSize: Size(double.infinity, 60),
+                  minimumSize: const Size(double.infinity, 60),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(14),
                   ),
@@ -59,7 +64,7 @@ class RegisterPage extends StatelessWidget {
                   Navigator.of(context).pushNamed('/home');
                 },
                 child: const Text(
-                  'Registrar',
+                  'Cadastrar',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
@@ -68,13 +73,24 @@ class RegisterPage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 15),
-              GestureDetector(
-                onTap: () {
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.grey,
+                  minimumSize: const Size(double.infinity, 60),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                ),
+                onPressed: () {
                   Navigator.of(context).pushNamed('/');
                 },
                 child: const Text(
-                  'Já tenho uma conta',
-                  style: TextStyle(color: Color(0xFFFFFFFF), fontSize: 20),
+                  'Cancelar',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ],
@@ -83,4 +99,4 @@ class RegisterPage extends StatelessWidget {
       ),
     );
   }
-} 
+}

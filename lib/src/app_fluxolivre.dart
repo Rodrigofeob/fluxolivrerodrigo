@@ -1,3 +1,4 @@
+import 'package:appfluxolivre/src/pages/cad_usuario_page.dart';
 import 'package:appfluxolivre/src/pages/home_page.dart';
 import 'package:appfluxolivre/src/pages/login_page.dart';
 import 'package:appfluxolivre/src/pages/register_page.dart';
@@ -14,7 +15,8 @@ class AppFluxolivre extends StatelessWidget {
       routes: {
         '/':(_)=> LoginPage(),
         '/home':(_)=> HomePage(),
-        '/register':(_)=> RegisterPage()
+        '/register':(_)=> CadUsuarioPage()
+        
       },
     );
   }

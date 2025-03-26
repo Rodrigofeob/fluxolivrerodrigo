@@ -4,17 +4,24 @@ class InputLoginWidget extends StatelessWidget {
   final IconData icon;
   final String hint;
   final bool obscure;
+  final TextInputType type;
+  final TextEditingController controller;
+  final String? Function(String?)? validator;
   
   const InputLoginWidget({
     required this.icon,
     required this.hint,
-    required this.obscure,
+    required this.controller,
+    this.obscure = false,
+    this.type = TextInputType.text,
+    this.validator,
     super.key,
     });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       decoration: InputDecoration(
         icon: Icon(icon, color: Color(0xFFFFFFFF)),
         hintText: hint,
@@ -25,6 +32,8 @@ class InputLoginWidget extends StatelessWidget {
       ),
       style: TextStyle(color: Color(0xFFFFFFFF)),
       obscureText: obscure,
+      keyboardType: type,
+      validator: validator,
     );
   }
 }

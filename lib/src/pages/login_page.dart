@@ -1,8 +1,23 @@
 import 'package:appfluxolivre/src/widgets/input_login_widget.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _usernameController = TextEditingController();
+  final _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _usernameController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,11 +44,15 @@ class LoginPage extends StatelessWidget {
               InputLoginWidget(
                 icon: Icons.person_outline,
                 hint: 'Usuário',
+                controller: _usernameController,
+                type: TextInputType.text,
                 obscure: false,
               ),
               InputLoginWidget(
                 icon: Icons.lock_outline,
                 hint: 'Password',
+                controller: _passwordController,
+                type: TextInputType.visiblePassword,
                 obscure: true,
               ),
               const SizedBox(height: 30),
